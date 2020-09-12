@@ -34,6 +34,12 @@ app.get("/contact", function (req, res) {
 	res.render("contact", { contactContents : contactContent});
 });
 
+// Post About Us
+app.post("/about", function (req, res) {
+	
+	res.redirect("about")
+})
+
 // Port listener
 app.listen(PORT, () => {
 	console.log(`Server is running at port ${PORT}`);
