@@ -15,25 +15,23 @@ const contactContent =
 
 app.use(express.static("public"));
 app.use(bodyPaser.urlencoded({ extended: true }));
-app.set("view engine", "ejs");
 
+// Template Engine
+app.set("view engine", "ejs"); 
+
+// Route to Home Page
 app.get("/", function (req, res) {
-	res.redirect("/home");
+	res.render("home", {homeContent: homeStartingContent});
 });
 
 // Route to About Page
 app.get("/about", function (req, res) {
-	res.render("about");
-});
-
-// Route to Home Page
-app.get("/home", function (req, res) {
-	res.render("home");
+	res.render("about", {aboutContents: aboutContent});
 });
 
 // Route to Contact Us Page
 app.get("/contact", function (req, res) {
-	res.render("contact");
+	res.render("contact", { contactContents : contactContent});
 });
 
 // Port listener
