@@ -36,7 +36,7 @@ app.get("/contact", function (req, res) {
 
 // Post About Us
 app.post("/about", function (req, res) {
-	
+
 	res.redirect("about")
 })
 
