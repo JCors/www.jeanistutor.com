@@ -2,10 +2,13 @@
 
 <h1>Home Page</h1>
 <p><%=homeContent%></p>
-  <div>
-    <% for (var i=0; i < posts.length; i++){ %>
-    <p><%= posts[i].title; %></p>
-    <%   };%>
+<div>
+    <!-- Loop the posts and get the Title in the Array -->
+    <%  posts.forEach((post) => { %>
+    <!-- Display the value in the Title of the posts -->
+    <h3> <%=  post.title; %></h3>
+    <p> <%=  post.content; %></p>
+    <%  }); %>
 </div>
-<%- include('partials/footer'); -%>
 
+<%- include('partials/footer'); -%>

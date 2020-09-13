@@ -38,34 +38,36 @@ app.get("/contact", function (req, res) {
 	res.render("contact", { contactContents: contactContent });
 });
 
-// Post About Us
+// Route Post About Us
 app.post("/about", function (req, res) {
 	res.redirect("about");
 });
 
-// Compose Page
+// Route Compose Page
 app.get("/compose", function (req, res) {
 	res.render("compose");
 });
 
-//Post Compose Page
+// Route to Post Compose Page
 app.post("/compose", function (req, res) {
 	var post = {
 		title: req.body.textTitle,
 		content: req.body.textHere,
 	};
-	if (post === "") {
-		publishedList.push(post);
-		res.redirect("/");
-	} else {
-		res.redirect("compose");
-	}
+	publishedList.push(post);
+	res.redirect("/");
 });
 
 // Post Page
-// app.get("/post", function (req, res) {
-// 	res.render("post", { publishedArticles: publishedList });
-// });
+app.get("/post/:postName", function (req, res) {
+	const requestedTitle = req.params.postName;
+	publishedList.forEach(function (post) {
+		const storedTitle = post.title;
+		if (storedTitle === requestedTitle) {
+			console.log("Match Found");
+		}
+	});
+});
 
 // Port listener
 app.listen(PORT, () => {
