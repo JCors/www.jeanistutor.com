@@ -5,6 +5,9 @@ const bodyPaser = require("body-parser");
 const ejs = require("ejs");
 const e = require("express");
 const app = express();
+const _ = require("lodash");
+
+//	Server Port
 const PORT = process.env.PORT || 3000;
 
 const homeStartingContent =
@@ -14,6 +17,7 @@ const aboutContent =
 const contactContent =
 	"Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 let publishedList = [];
+
 app.use(express.static("public"));
 app.use(bodyPaser.urlencoded({ extended: true }));
 
@@ -60,11 +64,14 @@ app.post("/compose", function (req, res) {
 
 // Post Page
 app.get("/post/:postName", function (req, res) {
-	const requestedTitle = req.params.postName;
+	const requestedTitle = _.lowerCase(req.params.postName);
 	publishedList.forEach(function (post) {
-		const storedTitle = post.title;
+		const storedTitle = _.lowerCase(post.title);
 		if (storedTitle === requestedTitle) {
-			console.log("Match Found");
+			res.render("post", {
+				title: post.title,
+				content: post.content,
+			});
 		}
 	});
 });
