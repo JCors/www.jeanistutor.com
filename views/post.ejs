@@ -1,5 +1,9 @@
-<%- include('header'); -%>
+<%- include('partials/header'); -%>
 
 <h1>Post Page</h1>
-  
-<%- include('footer'); -%>
+<div>
+    <% for (var i=0; i < publishedArticles.length; i++){ %>
+    <p><%= publishedArticles[i] %></p>
+    <%   } %>
+</div>
+<%- include('partials/footer'); -%>

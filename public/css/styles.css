@@ -42,5 +42,6 @@
 .footer p {
    margin-top: 25px;
    font-size: 12px;
+   font-weight: bold;
    color: white;
 }

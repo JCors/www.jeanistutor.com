@@ -1,5 +1,12 @@
-<%- include('header'); -%>
+<%- include('partials/header'); -%>
 
 <h1>Compose Page</h1>
-  
-<%- include('footer'); -%>
+<div class="form-inline">
+    <form class="form-group col-md-6" action="/compose" method="post">
+        <input type="text" name="textHere" placeholder="Type your text here">
+        <button name="publishList" type="submit" class="btn btn-primary">Publish</button>
+    </form>
+</div>
+
+
+<%- include('partials/footer'); -%>
