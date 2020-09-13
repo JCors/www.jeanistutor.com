@@ -45,3 +45,18 @@
    font-weight: bold;
    color: white;
 }
+
+/* Publish button */
+.btn{
+   margin-top: 20px;
+}
+
+#textArea{
+   height: 300px;
+}
+
+.compose-label{
+   margin-top: 20px;
+   margin-bottom: 20px;
+
+}

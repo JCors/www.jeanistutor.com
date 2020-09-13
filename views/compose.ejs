@@ -1,12 +1,18 @@
 <%- include('partials/header'); -%>
 
 <h1>Compose Page</h1>
-<div class="form-inline">
-    <form class="form-group col-md-6" action="/compose" method="post">
-        <input type="text" name="textHere" placeholder="Type your text here">
-        <button name="publishList" type="submit" class="btn btn-primary">Publish</button>
-    </form>
-</div>
+
+<form class="form-group mb-3" action="/compose" method="post">
+    <div class="input-group-lg">
+        <label class="compose-label">Title</label>
+        <input type="text" class="form-control" name="textTitle" placeholder="Title">
+        <label class="compose-label">Description</label>
+        <textarea id="textArea" class="form-control" aria-label="With textarea" class="input-group-text" type="text" name="textHere"
+            placeholder="Description"></textarea>
+        <button id="publishButton" name="publishList" type="submit" class="btn btn-primary">Publish</button>
+    </div>
+</form>
+
 
 
 <%- include('partials/footer'); -%>
