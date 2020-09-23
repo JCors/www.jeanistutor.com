@@ -7,7 +7,8 @@
     <%  posts.forEach((post) => { %>
     <!-- Display the value in the Title of the posts -->
     <h3> <%=  post.title; %></h3>
-    <p> <%=  post.content; %></p>
+    <p> <%=  post.content.substring(0, 500) + "..." %>
+        <a href="/post/<%= post.title %>">Read More</a></p>
     <%  }); %>
 </div>
 
