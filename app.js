@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyPaser = require("body-parser");
+const ejs = require("ejs");
 const app = express();
 const _ = require("lodash");
 const mongoose = require("mongoose");
@@ -39,14 +40,14 @@ const Post = mongoose.model("Post", postSchema);
 
 // Route to Home Page
 app.get("/", function (req, res) {
-	Post.find({}, function (err, postsContent) {
+	Post.find({}, function (err, posts) {
 		res.render("home", {
 			startingContent: homeStartingContent,
-			posts: postsContent,
+			posts: posts,
 		});
-		console.log("redirected to home");
 	});
 });
+
 
 // Route to About Page
 app.get("/about", function (req, res) {
@@ -69,6 +70,7 @@ app.post("/compose", function (req, res) {
 		title: req.body.postTitle,
 		content: req.body.postBody,
 	});
+	console.log(post.title);
 	post.save(function (err) {
 		if (!err) {
 			res.redirect("/");
@@ -80,16 +82,12 @@ app.post("/compose", function (req, res) {
 // Post Page
 app.get("/posts/:postId", function (req, res) {
 	const requestedPostId = req.params.postId;
-
+	console.log(requestedPostId);
 	Post.findOne({ _id: requestedPostId }, function (err, post) {
-		if (!err) {
-			res.render("posts", {
-				title: post.title,
-				content: post.content,
-			});
-		} else {
-			console.log(err);
-		}
+		res.render("post", {
+			title: post.title,
+			content: post.content,
+		});
 	});
 });
 
