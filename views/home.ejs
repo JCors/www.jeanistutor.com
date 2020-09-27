@@ -1,15 +1,13 @@
 <%- include('partials/header'); -%>
 
-<h1>Home Page</h1>
-<p><%=homeContent%></p>
-<div>
-    <!-- Loop the posts and get the Title in the Array -->
-    <%  posts.forEach((post) => { %>
-    <!-- Display the value in the Title of the posts -->
-    <h3> <%=  post.title; %></h3>
-    <p> <%=  post.content.substring(0, 500) + "..." %>
-        <a href="/post/<%= post.title %>">Read More</a></p>
-    <%  }); %>
-</div>
+<h1>Home</h1>
+<p> <%= startingContent %> </p>
+<%  posts.forEach(function(post){ %>
 
+<h1><%= post.title %></h1>
+<p>
+    <%= post.content.substring(0, 100) + " ..." %>
+    <a href="/posts/<%= post._id %>">Read More</a>
+</p>
+<% }); %>
 <%- include('partials/footer'); -%>

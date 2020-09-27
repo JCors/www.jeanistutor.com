@@ -5,14 +5,13 @@
 <form class="form-group mb-3" action="/compose" method="post">
     <div class="input-group-lg">
         <label class="compose-label">Title</label>
-        <input type="text" class="form-control" name="textTitle" placeholder="Title" autocomplete="off">
-        <label class="compose-label">Description</label>
-        <textarea id="textArea" class="form-control" aria-label="With textarea" class="input-group-text" type="text" name="textHere"
-            placeholder="Description"></textarea>
-        <button id="publishButton" name="publishList" type="submit" class="btn btn-primary btn-lg">Publish</button>
+        <input type="text" class="form-control" name="postTitle" placeholder="Title" autocomplete="off">
+        <label class="compose-label">Post Description</label>
+        <textarea id="textArea" class="form-control" aria-label="With textarea" class="input-group-text" type="text"
+            name="postBody" placeholder="Description"></textarea>
     </div>
+    <button id="publishButton" name="buttonPublish" type="submit" class="btn btn-primary btn-lg">Publish</button>
+
 </form>
-
-
 
 <%- include('partials/footer'); -%>
