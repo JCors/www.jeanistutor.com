@@ -27,7 +27,7 @@ app.set("view engine", "ejs");
 mongoose.connect("mongodb://localhost:27017/blogDB", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
-});
+ });
 
 // Add Schema for Database
 const postSchema = {
